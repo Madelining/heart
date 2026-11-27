@@ -1,13 +1,21 @@
 # 2026 Hackathon — Exposure Territory / team121
 
-This branch contains the locally packaged Python strategy project.
+This branch contains the team121 strategy package and v2 strategy notes/helpers.
 
-## Download
+## v1 package
 
-Download [exposure-territory-team121.zip](./exposure-territory-team121.zip) or use the branch archive.
+[Download v1 ZIP](./exposure-territory-team121.zip)
 
-## Important validation note
+## v2 source added
 
-The implementation was built from the rules and SDK interface description supplied by the team. The official `player-kit.zip` was not attached to the development session, so this package has **not** been verified against the official judge engine. It includes synthetic unit tests and a PowerShell seed-sweep helper; run the official engine and tests before submitting.
+- [Strategy notes](./exposure-territory-team121-v2/STRATEGY_NOTES.md)
+- [Strategy helper implementation](./exposure-territory-team121-v2/strategy_helpers.py)
+- [Helper tests](./exposure-territory-team121-v2/tests/test_strategy_helpers.py)
 
-No strategy can guarantee first place against unknown opponents and maps. Treat this as a competitive baseline that needs tournament-specific validation.
+The v2 helpers provide legal-command filtering, BFS first-step routing, weighted territory value, exposed-edge counting, and a score estimate. They are reference components and still need to be integrated with the official SDK adapter.
+
+## Validation caveat
+
+The official `player-kit.zip` has not been run against this repository's v2 helpers. Use the official engine as source of truth for movement, closure, and match scoring. The helper tests are not tournament-engine tests.
+
+No strategy can guarantee first place against unknown opponents and maps. Validate both seats over many seeds before submitting.
